@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name Bondage Club Enhancements Stable Loader 
+// @name Bondage Club Enhancements X's Special Release Loader 
 // @namespace https://www.bondageprojects.com/
 // @version 1.0.1 
 // @description enhancements for the bondage club
