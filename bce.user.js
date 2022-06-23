@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name Bondage Club Enhancements X‘s Special Release
+// @name Bondage Club Enhancements X's Special Release
 // @namespace https://www.bondageprojects.com/
 // @version 3.6.1 X
 // @description enhancements for the bondage club
