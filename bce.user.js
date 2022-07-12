@@ -4,6 +4,7 @@
 // @version 3.7.0 x
 // @description enhancements for the bondage club
 // @author Sidious
+// @custum version by cross1566
 // @match https://bondageprojects.elementfx.com/*
 // @match https://www.bondageprojects.elementfx.com/*
 // @match https://bondage-europe.com/*
