@@ -59,7 +59,7 @@ const bceChangelog = `3.7.0
 
 3.5
 - R81Beta3 compatibility
-- remove cheat to loosen/tighten *while bound*: it has become apparent this is causing more problems than the issues it was created to solve
+- remove cheat to loosen/tighten *while bound*: it has become apparent this is causing more problems than the issues it was created to solve //restored by x
 - fix notes in profile
 - validate version strings before displaying them //partially restored by x
 - new setting to allow using all activities always regardless of their prerequisites
