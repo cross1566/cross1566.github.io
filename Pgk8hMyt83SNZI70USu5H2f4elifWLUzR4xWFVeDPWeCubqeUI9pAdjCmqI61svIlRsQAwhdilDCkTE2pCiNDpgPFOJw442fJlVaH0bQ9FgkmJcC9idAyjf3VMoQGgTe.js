@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Bondage Club Enhancements cross
 // @namespace https://www.bondageprojects.com/
-// @version 3.7.0 cross
+// @version 3.7.1 cross
 // @description enhancements for the bondage club
 // @author Sidious
 // @custum version by cross1566
