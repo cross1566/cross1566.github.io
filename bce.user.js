@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Bondage Club Enhancements X‘s Special Release
 // @namespace https://www.bondageprojects.com/
-// @version 3.7.0 x
+// @version 3.7.1 x
 // @description enhancements for the bondage club
 // @author Sidious
 // @custum version by cross1566
@@ -40,7 +40,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const BCE_VERSION = "370x";
+const BCE_VERSION = "371x";
 const settingsVersion = 38;
 
 const bceChangelog = `3.7.0
