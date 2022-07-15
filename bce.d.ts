@@ -443,6 +443,7 @@ declare global {
     type?: "boolean" | "string";
     sideEffects: (newValue: boolean | string) => void;
     category: SettingsCategory;
+    description: string;
   };
 
   type DefaultSettingBoolean = DefaultSettingBase & {
@@ -505,6 +506,7 @@ declare global {
     AccountName: string;
     Creation: number;
     Appearance: Item[];
+    Inventory: Item[];
     AppearanceLayers: ItemLayer[];
     Wardrobe: ItemBundle[][];
     FocusGroup: AssetGroup;
@@ -755,6 +757,7 @@ declare global {
     enjoyment?: number;
     activity?: BCEActivity;
     nick?: string;
+    crafts?: Craft[];
   };
   type ChatMessageDictionary = {
     Tag?: string;
