@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Bondage Club Enhancements X‘s Special Release
 // @namespace https://www.bondageprojects.com/
-// @version 3.8.3 x
+// @version 3.8.5 x
 // @description enhancements for the bondage club
 // @author Sidious
 // @custum version by cross1566
@@ -40,10 +40,16 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const BCE_VERSION = "383x";
+const BCE_VERSION = "385x";
 const settingsVersion = 39;
 
 const bceChangelog = `${BCE_VERSION}
+- R82 compatibility
+
+3.8.4
+- small styling fixes for BCE's tooltips
+
+3.8.3
 - fix crash with crafted item property/description showing
 
 3.8.2
@@ -71,13 +77,13 @@ const bceChangelog = `${BCE_VERSION}
 - add addon items to craftable items
 - add nudity toggle to crafting preview
 - improvements to the crafting interface
-- removed all activities cheat until it can be implemented better //restored by x
+- removed all activities cheat until it can be implemented better
 
 3.5
 - R81Beta3 compatibility
 - remove cheat to loosen/tighten *while bound*: it has become apparent this is causing more problems than the issues it was created to solve
 - fix notes in profile
-- validate version strings before displaying them //partially restored by x
+- validate version strings before displaying them
 - new setting to allow using all activities always regardless of their prerequisites
 `;
 
@@ -95,7 +101,7 @@ const bcModSdk=function(){"use strict";const o="1.0.2";function e(o){alert("Mod 
 async function BondageClubEnhancements() {
 	"use strict";
 
-	const SUPPORTED_GAME_VERSIONS = ["R81", "R82Beta1", "R82Beta2", "R82Beta3"];
+	const SUPPORTED_GAME_VERSIONS = ["R82"];
 	const CAPABILITIES = ["clubslave"];
 
 	const w = window;
@@ -109,8 +115,8 @@ async function BondageClubEnhancements() {
 
 	w.BCE_VERSION = BCE_VERSION;
 
-	const DISCORD_INVITE_URL = "https://discord.gg/SHJMjEh9VH";
-	const WEBSITE_URL = "https://sidiousious.gitlab.io/bce/";
+	const DISCORD_INVITE_URL = "https://discord.gg/7mGfKtgMN9";
+	const WEBSITE_URL = "https://github.com/cross1566/bce_stable/blob/master/bce.user.js";
 
 	const BCX_DEVEL_SOURCE =
 			"https://jomshir98.github.io/bondage-club-extended/devel/bcx.js",
@@ -119,7 +125,7 @@ async function BondageClubEnhancements() {
 		EBCH_SOURCE = "https://e2466.gitlab.io/ebch/master/EBCH.js";
 
 	const BCE_COLOR_ADJUSTMENTS_CLASS_NAME = "bce-colors",
-		BCE_LICENSE = "https://gitlab.com/Sidiousious/bce/-/blob/main/LICENSE",
+		BCE_LICENSE = "https://github.com/cross1566/bce_stable/blob/master/LICENSE",
 		BCE_MAX_AROUSAL = 99.6,
 		BCE_MSG = "BCEMsg",
 		BCX_ORIGINAL_MESSAGE = "BCX_ORIGINAL_MESSAGE",
@@ -454,8 +460,8 @@ async function BondageClubEnhancements() {
 				"All three forms of struggling will be completed automatically in a realistic amount of time, if the restraint is possible to struggle out of.",
 		},
 		skipActivityPrerequisites: {
-            label: "Always allow all activities",
-            value: false,
+                label: "Always allow all activities",
+                value: false,
             sideEffects: (newValue) => {
                 bceLog("skipActivityPrerequisites", newValue);
             },
@@ -1084,12 +1090,12 @@ async function BondageClubEnhancements() {
 			CommonClick: "1F6DF7CB",
 			CommonColorIsValid: "390A2CE4",
 			CommonSetScreen: "17692CD7",
-			CraftingClick: "4A59F3E8",
-			CraftingItemListBuild: "107646D8",
+			CraftingClick: "3D4C8373",
+			CraftingItemListBuild: "AD8AB2D2",
 			CraftingLoad: "8ACDAB6E",
 			CraftingExit: "27578DC8",
 			CraftingModeSet: "CD06BF9E",
-			CraftingRun: "50DAA6E6",
+			CraftingRun: "7E104EC8",
 			DialogClick: "592A4F65",
 			DialogDraw: "7AD8C0F6",
 			DialogDrawItemMenu: "FB5172D2",
@@ -1180,13 +1186,6 @@ async function BondageClubEnhancements() {
 		};
 
 		switch (gameVersion) {
-			case "R82Beta1":
-			case "R82Beta2":
-			case "R82Beta3":
-				hashes.CraftingClick = "3D4C8373";
-				hashes.CraftingItemListBuild = "AD8AB2D2";
-				hashes.CraftingRun = "7E104EC8";
-				break;
 			default:
 				break;
 		}
@@ -1476,7 +1475,11 @@ async function BondageClubEnhancements() {
 							`Your version of BCE is outdated and may not be supported. Please update.
 
 	Your version: $Version
-	Latest version: $Latest`,
+	Latest version: $Latest
+
+	Changelog available on GitLab (raw) and Discord:
+	- https://gitlab.com/Sidiousious/bce/-/commits/main/
+	- $DiscordUrl`,
 							{
 								$Version: BCE_VERSION,
 								$Latest: latest,
@@ -2519,7 +2522,8 @@ async function BondageClubEnhancements() {
 							300,
 							830,
 							1400,
-							displayText(defaultSettings[currentSetting].description)
+							displayText(defaultSettings[currentSetting].description),
+							"left"
 						);
 					}
 
@@ -9261,8 +9265,16 @@ async function BondageClubEnhancements() {
 				if (options) {
 					const { Craft } = options;
 					if (MouseIn(x, y, 225, 275) && Craft) {
-						drawTooltip(x, y, 225, displayText(Craft.Property));
-						drawTooltip(1000, y - 70, 975, displayText(Craft.Description));
+						drawTooltip(x, y, 225, displayText(Craft.Property), "center");
+						drawTooltip(
+							1000,
+							y - 70,
+							975,
+							`${displayText("Description:")} ${
+								Craft.Description || "<no description>"
+							}`,
+							"left"
+						);
 					}
 				}
 				return ret;
@@ -9315,11 +9327,11 @@ async function BondageClubEnhancements() {
 		createTimer(sendHeartbeat, 1000 * 60 * 5);
 	})();
 
-	/** @type {(x: number, y: number, width: number, text: string)} */
-	function drawTooltip(x, y, width, text) {
+	/** @type {(x: number, y: number, width: number, text: string, align: "left" | "center") => void} */
+	function drawTooltip(x, y, width, text, align) {
 		const canvas = w.MainCanvas.getContext("2d");
 		const bak = canvas.textAlign;
-		canvas.textAlign = "left";
+		canvas.textAlign = align;
 		canvas.beginPath();
 		canvas.rect(x, y, width, 65);
 		canvas.fillStyle = "#FFFF88";
@@ -9329,7 +9341,13 @@ async function BondageClubEnhancements() {
 		canvas.strokeStyle = "black";
 		canvas.stroke();
 		canvas.closePath();
-		DrawTextFit(text, x + 3, y + 33, width - 6, "black");
+		DrawTextFit(
+			text,
+			align === "left" ? x + 3 : x + width / 2,
+			y + 33,
+			width - 6,
+			"black"
+		);
 		canvas.textAlign = bak;
 	}
 
