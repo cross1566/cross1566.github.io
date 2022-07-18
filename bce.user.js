@@ -1475,11 +1475,7 @@ async function BondageClubEnhancements() {
 							`Your version of BCE is outdated and may not be supported. Please update.
 
 	Your version: $Version
-	Latest version: $Latest
-
-	Changelog available on GitLab (raw) and Discord:
-	- https://gitlab.com/Sidiousious/bce/-/commits/main/
-	- $DiscordUrl`,
+	Latest version: $Latest`,
 							{
 								$Version: BCE_VERSION,
 								$Latest: latest,
