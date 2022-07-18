@@ -77,13 +77,13 @@ const bceChangelog = `${BCE_VERSION}
 - add addon items to craftable items
 - add nudity toggle to crafting preview
 - improvements to the crafting interface
-- removed all activities cheat until it can be implemented better
+- removed all activities cheat until it can be implemented better //restored by x
 
 3.5
 - R81Beta3 compatibility
 - remove cheat to loosen/tighten *while bound*: it has become apparent this is causing more problems than the issues it was created to solve
 - fix notes in profile
-- validate version strings before displaying them
+- validate version strings before displaying them //partially restored by x
 - new setting to allow using all activities always regardless of their prerequisites
 `;
 
